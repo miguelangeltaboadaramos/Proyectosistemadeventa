@@ -1,7 +1,6 @@
 package sistemaDeVentasFinal.sistemaventas.model;
 
 import jakarta.persistence.*;
-import java.util.List;
 
 @Entity
 @Table(name = "clientes")
@@ -13,9 +12,6 @@ public class Cliente {
     private String dniRuc;
     private String telefono;
     private String correo;
-
-    @OneToMany(mappedBy = "cliente")
-    private List<Venta> ventas;
 
     public Integer getIdcliente() {
         return idcliente;
@@ -56,12 +52,5 @@ public class Cliente {
     public void setCorreo(String correo) {
         this.correo = correo;
     }
-
-    public List<Venta> getVentas() {
-        return ventas;
-    }
-
-    public void setVentas(List<Venta> ventas) {
-        this.ventas = ventas;
-    }
 }
+

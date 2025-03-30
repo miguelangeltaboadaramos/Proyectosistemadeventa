@@ -10,7 +10,7 @@ public class Comprobante {
     private Integer idcomprobante;
     private Double total;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "idventa")
     private Venta venta;
 

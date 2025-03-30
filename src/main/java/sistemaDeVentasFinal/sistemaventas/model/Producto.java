@@ -1,7 +1,6 @@
 package sistemaDeVentasFinal.sistemaventas.model;
 
 import jakarta.persistence.*;
-import java.util.List;
 
 @Entity
 @Table(name = "productos")
@@ -24,9 +23,6 @@ public class Producto {
     @ManyToOne
     @JoinColumn(name = "idestado")
     private Estado estado;
-
-    @OneToMany(mappedBy = "producto")
-    private List<DetalleVenta> detallesVenta;
 
     public Integer getIdproducto() {
         return idproducto;
@@ -82,13 +78,5 @@ public class Producto {
 
     public void setEstado(Estado estado) {
         this.estado = estado;
-    }
-
-    public List<DetalleVenta> getDetallesVenta() {
-        return detallesVenta;
-    }
-
-    public void setDetallesVenta(List<DetalleVenta> detallesVenta) {
-        this.detallesVenta = detallesVenta;
     }
 }

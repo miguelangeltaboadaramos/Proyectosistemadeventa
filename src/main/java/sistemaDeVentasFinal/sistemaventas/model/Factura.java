@@ -8,12 +8,11 @@ public class Factura {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idfactura;
+    private String rucCliente;
 
     @ManyToOne
     @JoinColumn(name = "idcomprobante")
     private Comprobante comprobante;
-
-    private String ruccliente;
 
     public Integer getIdfactura() {
         return idfactura;
@@ -23,19 +22,19 @@ public class Factura {
         this.idfactura = idfactura;
     }
 
+    public String getRucCliente() {
+        return rucCliente;
+    }
+
+    public void setRucCliente(String rucCliente) {
+        this.rucCliente = rucCliente;
+    }
+
     public Comprobante getComprobante() {
         return comprobante;
     }
 
     public void setComprobante(Comprobante comprobante) {
         this.comprobante = comprobante;
-    }
-
-    public String getRuccliente() {
-        return ruccliente;
-    }
-
-    public void setRuccliente(String ruccliente) {
-        this.ruccliente = ruccliente;
     }
 }

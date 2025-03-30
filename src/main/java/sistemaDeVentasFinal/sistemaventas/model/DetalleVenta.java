@@ -2,6 +2,7 @@ package sistemaDeVentasFinal.sistemaventas.model;
 
 import jakarta.persistence.*;
 
+
 @Entity
 @Table(name = "detalleventa")
 public class DetalleVenta {

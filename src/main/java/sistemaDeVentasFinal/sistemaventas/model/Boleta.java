@@ -8,12 +8,11 @@ public class Boleta {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idboleta;
+    private String dniCliente;
 
     @ManyToOne
     @JoinColumn(name = "idcomprobante")
     private Comprobante comprobante;
-
-    private String dnicliente;
 
     public Integer getIdboleta() {
         return idboleta;
@@ -23,6 +22,14 @@ public class Boleta {
         this.idboleta = idboleta;
     }
 
+    public String getDniCliente() {
+        return dniCliente;
+    }
+
+    public void setDniCliente(String dniCliente) {
+        this.dniCliente = dniCliente;
+    }
+
     public Comprobante getComprobante() {
         return comprobante;
     }
@@ -30,13 +37,4 @@ public class Boleta {
     public void setComprobante(Comprobante comprobante) {
         this.comprobante = comprobante;
     }
-
-    public String getDnicliente() {
-        return dnicliente;
-    }
-
-    public void setDnicliente(String dnicliente) {
-        this.dnicliente = dnicliente;
-    }
 }
-

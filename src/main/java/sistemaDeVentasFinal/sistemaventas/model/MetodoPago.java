@@ -1,7 +1,6 @@
 package sistemaDeVentasFinal.sistemaventas.model;
 
 import jakarta.persistence.*;
-import java.util.List;
 
 @Entity
 @Table(name = "metodospago")
@@ -10,9 +9,6 @@ public class MetodoPago {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idmetodopago;
     private String nombre;
-
-    @OneToMany(mappedBy = "metodoPago")
-    private List<Venta> ventas;
 
     public Integer getIdmetodopago() {
         return idmetodopago;
@@ -28,13 +24,5 @@ public class MetodoPago {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
-    }
-
-    public List<Venta> getVentas() {
-        return ventas;
-    }
-
-    public void setVentas(List<Venta> ventas) {
-        this.ventas = ventas;
     }
 }

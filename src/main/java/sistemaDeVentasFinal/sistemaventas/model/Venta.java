@@ -1,7 +1,6 @@
 package sistemaDeVentasFinal.sistemaventas.model;
 
 import jakarta.persistence.*;
-import java.util.List;
 
 @Entity
 @Table(name = "ventas")
@@ -10,6 +9,8 @@ public class Venta {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idventa;
     private Double total;
+    private String fecha;
+    private String hora;
 
     @ManyToOne
     @JoinColumn(name = "idcliente")
@@ -27,12 +28,6 @@ public class Venta {
     @JoinColumn(name = "idmetodopago")
     private MetodoPago metodoPago;
 
-    @OneToMany(mappedBy = "venta")
-    private List<DetalleVenta> detallesVenta;
-
-    @OneToOne(mappedBy = "venta")
-    private Comprobante comprobante;
-
     public Integer getIdventa() {
         return idventa;
     }
@@ -47,6 +42,22 @@ public class Venta {
 
     public void setTotal(Double total) {
         this.total = total;
+    }
+
+    public String getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
+    }
+
+    public String getHora() {
+        return hora;
+    }
+
+    public void setHora(String hora) {
+        this.hora = hora;
     }
 
     public Cliente getCliente() {
@@ -79,21 +90,5 @@ public class Venta {
 
     public void setMetodoPago(MetodoPago metodoPago) {
         this.metodoPago = metodoPago;
-    }
-
-    public List<DetalleVenta> getDetallesVenta() {
-        return detallesVenta;
-    }
-
-    public void setDetallesVenta(List<DetalleVenta> detallesVenta) {
-        this.detallesVenta = detallesVenta;
-    }
-
-    public Comprobante getComprobante() {
-        return comprobante;
-    }
-
-    public void setComprobante(Comprobante comprobante) {
-        this.comprobante = comprobante;
     }
 }
