@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="layout::head" >
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<h1 th:replace="layout::titulo"></h1>
+<div th:replace="layout::menu"></div>
+<div class="container-producto">
+  <h2>DETALLE DE TODAS LAS VENTAS</h2>
+
+  <div class="buscador">
+    <input type="text" placeholder="Buscar venta...">
+    <div class="buscador-botones">
+      <button>Buscar</button>
+      <button>Eliminar</button>
+      <button>Limpiar</button>
+    </div>
+  </div>
+
+
+  <div class="tabla-container">
+    <table class="tabla-productos">
+      <thead>
+      <tr>
+        <th>Codigo</th>
+        <th>Cliente</th>
+        <th>Cantidad</th>
+        <th>Precio</th>
+        <th>Total</th>
+        <th>Dia</th>
+        <th>Hora</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>123</td>
+        <td>Juan</td>
+        <td>12</td>
+        <td>200</td>
+        <td>2000</td>
+        <td>02/06/2000</td>
+        <td>22:00</td>
+      </tr>
+      <tr>
+        <td>123</td>
+        <td>Juan</td>
+        <td>12</td>
+        <td>200</td>
+        <td>2000</td>
+        <td>02/06/2000</td>
+        <td>22:00</td>
+      </tr>
+      <tr>
+        <td>123</td>
+        <td>Juan</td>
+        <td>12</td>
+        <td>200</td>
+        <td>2000</td>
+        <td>02/06/2000</td>
+        <td>22:00</td>
+      </tr>
+      <tr>
+        <td>123</td>
+        <td>Juan</td>
+        <td>12</td>
+        <td>200</td>
+        <td>2000</td>
+        <td>02/06/2000</td>
+        <td>22:00</td>
+      </tr>
+      <tr>
+        <td>123</td>
+        <td>Juan</td>
+        <td>12</td>
+        <td>200</td>
+        <td>2000</td>
+        <td>02/06/2000</td>
+        <td>22:00</td>
+      </tr>
+
+      </tbody>
+    </table>
+  </div>
+
+
+
+
+</div>
+
+</body>
+</html>
