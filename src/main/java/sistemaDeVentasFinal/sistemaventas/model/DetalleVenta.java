@@ -13,6 +13,7 @@ public class DetalleVenta {
     private Double preciounitario;
     private Double subtotal;
 
+
     @ManyToOne
     @JoinColumn(name = "idventa")
     private Venta venta;
