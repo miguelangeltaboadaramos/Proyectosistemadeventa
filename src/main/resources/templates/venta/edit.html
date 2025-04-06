@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="layout::head" >
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1 th:replace="layout::titulo"></h1>
+<div th:replace="layout::menu"></div>
+<div class="container-producto">
+
+
+    <h1>Editar Proveedor</h1>
+    <form action="/proveedor/save" method="post">
+        <input type="hidden" name="idproveedor" th:value="${proveedor.idproveedor}">
+        <div>
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" th:value="${proveedor.nombre}" required>
+        </div>
+        <div>
+            <label for="telefono">Teléfono:</label>
+            <input type="text" id="telefono" name="telefono" th:value="${proveedor.telefono}" required>
+        </div>
+        <div>
+            <label for="correo">Correo:</label>
+            <input type="email" id="correo" name="correo" th:value="${proveedor.correo}" required>
+        </div>
+        <div>
+            <label for="direccion">Dirección:</label>
+            <input type="text" id="direccion" name="direccion" th:value="${proveedor.direccion}" required>
+        </div>
+        <div>
+            <label for="estado">Estado:</label>
+            <select id="estado" name="estado.idestado" required>
+                <th:block th:each="estado : ${estados}">
+                    <option th:value="${estado.idestado}" th:text="${estado.nombreestado}"
+                            th:if="${estado.idestado == proveedor.estado.idestado}"></option>
+                </th:block>
+            </select>
+        </div>
+        <button type="submit">Guardar</button>
+    </form>
+</div>
+</body>
+</html>

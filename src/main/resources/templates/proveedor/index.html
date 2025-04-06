@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="layout::head" >
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1 th:replace="layout::titulo"></h1>
+<div th:replace="layout::menu"></div>
+<div class="container-producto">
+
+    <h1>Listado de Productos</h1>
+    <a href="/producto/create">Crear Producto</a>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Precio</th>
+            <th>Cantidad</th>
+            <th>Categoría</th>
+            <th>Estado</th>
+            <th>Proveedor</th>
+            <th>Acciones</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="producto : ${productos}">
+            <td th:text="${producto.nombre}"></td>
+            <td th:text="${producto.precio}"></td>
+            <td th:text="${producto.cantidad}"></td>
+            <td th:text="${producto.categoria.nombre}"></td>
+            <td th:text="${producto.estado.nombreestado}"></td>
+            <td th:text="${producto.proveedor.nombre}"></td>
+            <td>
+                <a th:href="@{/producto/edit/{id}(id=${producto.idproducto})}">Editar</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+
+
+
+
+</div>
+</body>
+</html>

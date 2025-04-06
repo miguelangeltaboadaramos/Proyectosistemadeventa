@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="layout::head" >
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1 th:replace="layout::titulo"></h1>
+<div th:replace="layout::menu"></div>
+<div class="container-producto">
+
+    <tbody>
+    <tr th:each="producto : ${productos}">
+        <td th:text="${producto.nombre}"></td>
+        <td th:text="${producto.precio}"></td>
+        <td th:text="${producto.cantidad}"></td>
+        <td th:text="${producto.categoria.nombre}"></td>
+        <td th:text="${producto.estado.nombreestado}"></td>
+        <td>
+            <a th:href="@{/productoproveedor/edit/{idProducto}/{idProveedor}(idProducto=${producto.idproducto}, idProveedor=${producto.proveedor.idproveedor})}">Editar</a>
+        </td>
+    </tr>
+    <tr th:if="${#lists.isEmpty(productos)}">
+        <td colspan="6">No hay productos disponibles.</td>
+    </tr>
+    </tbody>
+
+    <tbody>
+    <tr th:each="proveedor : ${proveedores}">
+        <td th:text="${proveedor.nombre}"></td>
+        <td th:text="${proveedor.telefono}"></td>
+        <td th:text="${proveedor.correo}"></td>
+        <td th:text="${proveedor.estado.nombreestado}"></td>
+        <td>
+            <a th:href="@{/productoproveedor/edit/{idProducto}/{idProveedor}(idProducto=${producto.idproducto}, idProveedor=${proveedor.idproveedor})}">Editar</a>
+        </td>
+    </tr>
+    <tr th:if="${#lists.isEmpty(proveedores)}">
+        <td colspan="5">No hay proveedores disponibles.</td>
+    </tr>
+    </div>
+    <a href="/productoproveedor/create">Crear Producto y Proveedor</a>
+
+
+
+
+
+
+
+
+</div>
+</body>
+</html>
