@@ -9,39 +9,36 @@
 <div th:replace="layout::menu"></div>
 <div class="container-producto">
 
-    <h1>Listado de Productos</h1>
-    <a href="/producto/create">Crear Producto</a>
-
+    <h1>Listado de Proveedores</h1>
+    <a href="/proveedor/create">INGRESAR NUEVO PROVEEDOR</a>
     <table>
         <thead>
         <tr>
+            <th>ID</th>
             <th>Nombre</th>
-            <th>Precio</th>
-            <th>Cantidad</th>
-            <th>Categoría</th>
+            <th>Teléfono</th>
+            <th>Correo</th>
+            <th>Dirección</th>
             <th>Estado</th>
-            <th>Proveedor</th>
             <th>Acciones</th>
         </tr>
         </thead>
         <tbody>
-        <tr th:each="producto : ${productos}">
-            <td th:text="${producto.nombre}"></td>
-            <td th:text="${producto.precio}"></td>
-            <td th:text="${producto.cantidad}"></td>
-            <td th:text="${producto.categoria.nombre}"></td>
-            <td th:text="${producto.estado.nombreestado}"></td>
-            <td th:text="${producto.proveedor.nombre}"></td>
-            <td>
-                <a th:href="@{/producto/edit/{id}(id=${producto.idproducto})}">Editar</a>
-            </td>
-        </tr>
+        <th:block th:each="proveedor : ${proveedores}">
+            <tr>
+                <td th:text="${proveedor.idproveedor}"></td>
+                <td th:text="${proveedor.nombre}"></td>
+                <td th:text="${proveedor.telefono}"></td>
+                <td th:text="${proveedor.correo}"></td>
+                <td th:text="${proveedor.direccion}"></td>
+                <td th:text="${proveedor.estado.nombreestado}"></td>
+                <td>
+                    <a th:href="@{/proveedor/edit/{id}(id=${proveedor.idproveedor})}">Editar</a>
+                </td>
+            </tr>
+        </th:block>
         </tbody>
     </table>
-
-
-
-
 
 </div>
 </body>

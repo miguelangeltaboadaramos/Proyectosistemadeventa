@@ -1,10 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="layout::head" >
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
 <body>
-$END$
+<h1 th:replace="layout::titulo"></h1>
+<div th:replace="layout::menu"></div>
+<div class="container-producto">
+
+    <h1>Editar Empleado</h1>
+    <form action="#" th:action="@{/Empleado/save}" th:object="${empleado}" method="post">
+        <input type="hidden" th:field="*{idempleado}" />
+        <label>Nombre: <input type="text" th:field="*{nombre}" /></label><br/>
+        <label>Apellido: <input type="text" th:field="*{apellido}" /></label><br/>
+        <label>Teléfono: <input type="text" th:field="*{telefono}" /></label><br/>
+        <label>Estado:
+            <select th:field="*{estado.idestado}">
+                <option th:each="est : ${estados}" th:value="${est.idestado}" th:text="${est.nombreestado}"
+                        th:selected="${est.idestado == empleado.estado.idestado}"></option>
+            </select>
+        </label><br/>
+        <button type="submit">Actualizar</button>
+    </form>
+
+</div>
 </body>
 </html>

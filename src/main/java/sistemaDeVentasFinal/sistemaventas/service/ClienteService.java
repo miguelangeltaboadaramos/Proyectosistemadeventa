@@ -1,13 +1,14 @@
 package sistemaDeVentasFinal.sistemaventas.service;
 
+import org.springframework.stereotype.Service;
 import sistemaDeVentasFinal.sistemaventas.model.Cliente;
 import sistemaDeVentasFinal.sistemaventas.repository.ClienteRepository;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
 public class ClienteService {
+
     private final ClienteRepository clienteRepository;
 
     public ClienteService(ClienteRepository clienteRepository) {
@@ -16,6 +17,10 @@ public class ClienteService {
 
     public List<Cliente> obtenerClientes() {
         return clienteRepository.findAll();
+    }
+
+    public Cliente obtenerClienteXid(int id) {
+        return clienteRepository.findById(id).orElse(null);
     }
 
     public void guardarCliente(Cliente cliente) {

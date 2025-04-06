@@ -9,54 +9,39 @@
 <div th:replace="layout::menu"></div>
 <div class="container-producto">
 
-    <h1>Crear Nuevo Producto</h1>
-
-    <form action="#" th:action="@{/producto/save}" th:object="${producto}" method="post">
+    <h1>Nuevo Proveedor</h1>
+    <form action="/proveedor/save" method="post">
         <div>
-            <label for="nombre">Nombre</label>
-            <input type="text" id="nombre" th:field="*{nombre}" required />
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
         </div>
-
         <div>
-            <label for="precio">Precio</label>
-            <input type="number" id="precio" th:field="*{precio}" required />
+            <label for="telefono">Teléfono:</label>
+            <input type="text" id="telefono" name="telefono" required>
         </div>
-
         <div>
-            <label for="cantidad">Cantidad</label>
-            <input type="number" id="cantidad" th:field="*{cantidad}" required />
+            <label for="correo">Correo:</label>
+            <input type="email" id="correo" name="correo" required>
         </div>
-
         <div>
-            <label for="categoria">Categoría</label>
-            <select id="categoria" th:field="*{categoria.idcategoria}">
-                <option th:each="categoria : ${categorias}" th:value="${categoria.idcategoria}" th:text="${categoria.nombre}"></option>
+            <label for="direccion">Dirección:</label>
+            <input type="text" id="direccion" name="direccion" required>
+        </div>
+        <div>
+            <label for="estado">Estado:</label>
+            <select id="estado" name="estado.idestado" required>
+                <th:block th:each="estado : ${estados}">
+                    <option th:value="${estado.idestado}" th:text="${estado.nombreestado}"></option>
+                </th:block>
             </select>
         </div>
-
-        <div>
-            <label for="estado">Estado</label>
-            <select id="estado" th:field="*{estado.idestado}">
-                <option th:each="estado : ${estados}" th:value="${estado.idestado}" th:text="${estado.nombreestado}"></option>
-            </select>
-        </div>
-
-        <div>
-            <label for="proveedor">Proveedor</label>
-            <select id="proveedor" th:field="*{proveedor.idproveedor}">
-                <option th:each="proveedor : ${proveedores}" th:value="${proveedor.idproveedor}" th:text="${proveedor.nombre}"></option>
-            </select>
-        </div>
-
         <button type="submit">Guardar</button>
     </form>
 
 
 
 
-
-
-
+</div>
 
 </body>
 </html>

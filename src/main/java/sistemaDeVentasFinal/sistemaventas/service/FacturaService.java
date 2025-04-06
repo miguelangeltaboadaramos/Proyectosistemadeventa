@@ -1,13 +1,14 @@
 package sistemaDeVentasFinal.sistemaventas.service;
 
+import org.springframework.stereotype.Service;
 import sistemaDeVentasFinal.sistemaventas.model.Factura;
 import sistemaDeVentasFinal.sistemaventas.repository.FacturaRepository;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
 public class FacturaService {
+
     private final FacturaRepository facturaRepository;
 
     public FacturaService(FacturaRepository facturaRepository) {
@@ -18,7 +19,12 @@ public class FacturaService {
         return facturaRepository.findAll();
     }
 
+    public Factura obtenerFacturaXid(int id) {
+        return facturaRepository.findById(id).orElse(null);
+    }
+
     public void guardarFactura(Factura factura) {
         facturaRepository.save(factura);
     }
 }
+
