@@ -163,7 +163,7 @@ form select {
 
 form button[type="submit"] {
     width: 100%;
-    background-color: #26b7e9;
+    background-color: #1580d8;
     color: white;
     font-size: 16px;
     padding: 10px;
@@ -175,7 +175,7 @@ form button[type="submit"] {
 }
 
 form button[type="submit"]:hover {
-    background-color: #26b7e9;
+    background-color: #1580d8;
 }
 
 input[type="text"],
