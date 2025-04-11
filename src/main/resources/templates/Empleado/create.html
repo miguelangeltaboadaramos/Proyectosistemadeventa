@@ -9,7 +9,13 @@
 <div th:replace="layout::menu"></div>
 <div class="container-producto">
 
-    <h1>Registrar Nuevo Empleado</h1>
+    <div class="header-con-logo">
+        <img src="/logos/empleado.png" alt="Logo" class="logo">
+        <h1>Registrar Nuevo Empleado</h1>
+    </div>
+
+
+
     <form action="#" th:action="@{/Empleado/save}" th:object="${empleado}" method="post">
         <label>Nombre: <input type="text" th:field="*{nombre}" /></label>
         <label>Apellido: <input type="text" th:field="*{apellido}" /></label>

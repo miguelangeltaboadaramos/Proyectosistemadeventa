@@ -9,7 +9,14 @@
 <div th:replace="layout::menu"></div>
 <div class="container-producto">
 
-    <h1>Editar Empleado</h1>
+    <div class="header-con-logo">
+        <img src="/logos/empleado.png" alt="Logo" class="logo">
+        <h1>Editar Empleado</h1>
+    </div>
+
+
+
+
     <form action="#" th:action="@{/Empleado/save}" th:object="${empleado}" method="post">
         <input type="hidden" th:field="*{idempleado}" />
         <label>Nombre: <input type="text" th:field="*{nombre}" /></label><br/>

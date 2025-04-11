@@ -8,8 +8,10 @@
 <h1 th:replace="layout::titulo"></h1>
 <div th:replace="layout::menu"></div>
 <div class="container-producto">
-
+    <div class="header-con-logo">
+        <img src="/logos/proveedor.png" alt="Logo" class="logo">
     <h1>Nuevo Proveedor</h1>
+        </div>
     <form action="/proveedor/save" method="post">
         <div>
             <label for="nombre">Nombre:</label>

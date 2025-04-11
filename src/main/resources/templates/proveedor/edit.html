@@ -9,8 +9,11 @@
 <div th:replace="layout::menu"></div>
 <div class="container-producto">
 
+    <div class="header-con-logo">
+        <img src="/logos/proveedor.png" alt="Logo" class="logo">
 
     <h1>Editar Proveedor</h1>
+        </div>
     <form action="/proveedor/save" method="post">
         <input type="hidden" name="idproveedor" th:value="${proveedor.idproveedor}">
         <div>
