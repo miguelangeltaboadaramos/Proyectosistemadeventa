@@ -1,47 +1,56 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
-<head th:replace="layout::head" >
+<head th:replace="layout::head">
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Editar Proveedor</title>
 </head>
 <body>
-<h1 th:replace="layout::titulo"></h1>
 <div th:replace="layout::menu"></div>
-<div class="container-producto">
 
-    <div class="header-con-logo">
-        <img src="/logos/proveedor.png" alt="Logo" class="logo">
+<div class="container mt-5 p-4 shadow rounded-4 bg-light">
+    <div class="mb-4 text-center">
+        <h1 class="fw-bold text-primary">Editar Proveedor</h1>
+    </div>
 
-    <h1>Editar Proveedor</h1>
-        </div>
-    <form action="/proveedor/save" method="post">
+    <form action="/proveedor/save" method="post" class="row g-3">
         <input type="hidden" name="idproveedor" th:value="${proveedor.idproveedor}">
-        <div>
-            <label for="nombre">Nombre:</label>
-            <input type="text" id="nombre" name="nombre" th:value="${proveedor.nombre}" required>
+
+        <div class="col-md-6">
+            <label for="nombre" class="form-label">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" class="form-control" th:value="${proveedor.nombre}" required>
         </div>
-        <div>
-            <label for="telefono">Teléfono:</label>
-            <input type="text" id="telefono" name="telefono" th:value="${proveedor.telefono}" required>
+
+        <div class="col-md-6">
+            <label for="telefono" class="form-label">Teléfono:</label>
+            <input type="text" id="telefono" name="telefono" class="form-control" th:value="${proveedor.telefono}" required>
         </div>
-        <div>
-            <label for="correo">Correo:</label>
-            <input type="email" id="correo" name="correo" th:value="${proveedor.correo}" required>
+
+        <div class="col-md-6">
+            <label for="correo" class="form-label">Correo:</label>
+            <input type="email" id="correo" name="correo" class="form-control" th:value="${proveedor.correo}" required>
         </div>
-        <div>
-            <label for="direccion">Dirección:</label>
-            <input type="text" id="direccion" name="direccion" th:value="${proveedor.direccion}" required>
+
+        <div class="col-md-6">
+            <label for="direccion" class="form-label">Dirección:</label>
+            <input type="text" id="direccion" name="direccion" class="form-control" th:value="${proveedor.direccion}" required>
         </div>
-        <div>
-            <label for="estado">Estado:</label>
-            <select id="estado" name="estado.idestado" required>
-                <th:block th:each="estado : ${estados}">
-                    <option th:value="${estado.idestado}" th:text="${estado.nombreestado}"
-                            th:if="${estado.idestado == proveedor.estado.idestado}"></option>
-                </th:block>
+
+        <div class="col-md-6">
+            <label for="estado" class="form-label">Estado:</label>
+            <select id="estado" name="estado.idestado" class="form-select" required>
+                <option th:each="estado : ${estados}"
+                        th:value="${estado.idestado}"
+                        th:text="${estado.nombreestado}"
+                        th:selected="${estado.idestado == proveedor.estado.idestado}">
+                </option>
             </select>
         </div>
-        <button type="submit">Guardar</button>
+
+        <div class="col-12 text-center">
+            <button type="submit" class="btn btn-primary px-4 mt-3">
+                <i class="bi bi-save me-1"></i> Guardar
+            </button>
+        </div>
     </form>
 </div>
 </body>

@@ -9,7 +9,7 @@ public class Producto {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idproducto;
     private String nombre;
-    private Integer precio;
+    private Double precio;
     private Integer cantidad;
 
     @ManyToOne
@@ -40,11 +40,11 @@ public class Producto {
         this.nombre = nombre;
     }
 
-    public Integer getPrecio() {
+    public Double getPrecio() {
         return precio;
     }
 
-    public void setPrecio(Integer precio) {
+    public void setPrecio(Double precio) {
         this.precio = precio;
     }
 

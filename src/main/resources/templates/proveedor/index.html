@@ -1,49 +1,60 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
-<head th:replace="layout::head" >
+<html lang="es" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="layout::head">
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Listado de Proveedores</title>
 </head>
 <body>
-<h1 th:replace="layout::titulo"></h1>
+
+<!-- Menú -->
 <div th:replace="layout::menu"></div>
-<div class="container-producto">
 
-    <div class="header-con-logo">
-        <img src="/logos/proveedor.png" alt="Logo" class="logo">
-
-    <h1>Listado de Proveedores</h1>
+<main class="container mt-5">
+    <div class="card shadow-sm border-0">
+        <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
+            <h4 class="mb-0">Listado de Proveedores</h4>
+            <a href="/proveedor/create" class="btn btn-success">
+                <i class="bi bi-plus-circle me-1"></i>Nuevo Proveedor
+            </a>
         </div>
-    <a href="/proveedor/create">INGRESAR NUEVO PROVEEDOR</a>
-    <table>
-        <thead>
-        <tr>
-            <th>ID</th>
-            <th>Nombre</th>
-            <th>Teléfono</th>
-            <th>Correo</th>
-            <th>Dirección</th>
-            <th>Estado</th>
-            <th>Acciones</th>
-        </tr>
-        </thead>
-        <tbody>
-        <th:block th:each="proveedor : ${proveedores}">
-            <tr>
-                <td th:text="${proveedor.idproveedor}"></td>
-                <td th:text="${proveedor.nombre}"></td>
-                <td th:text="${proveedor.telefono}"></td>
-                <td th:text="${proveedor.correo}"></td>
-                <td th:text="${proveedor.direccion}"></td>
-                <td th:text="${proveedor.estado.nombreestado}"></td>
-                <td>
-                    <a th:href="@{/proveedor/edit/{id}(id=${proveedor.idproveedor})}">Editar</a>
-                </td>
-            </tr>
-        </th:block>
-        </tbody>
-    </table>
 
-</div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-hover table-bordered align-middle">
+                    <thead class="table-dark text-center">
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Teléfono</th>
+                        <th>Correo</th>
+                        <th>Dirección</th>
+                        <th>Estado</th>
+                        <th>Acciones</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="proveedor : ${proveedores}">
+                        <td th:text="${proveedor.idproveedor}"></td>
+                        <td th:text="${proveedor.nombre}"></td>
+                        <td th:text="${proveedor.telefono}"></td>
+                        <td th:text="${proveedor.correo}"></td>
+                        <td th:text="${proveedor.direccion}"></td>
+                        <td th:text="${proveedor.estado.nombreestado}"></td>
+                        <td class="text-center">
+                            <a th:href="@{/proveedor/edit/{id}(id=${proveedor.idproveedor})}" class="btn btn-outline-primary btn-sm">
+                                <i class="bi bi-pencil-square"></i> Editar
+                            </a>
+                        </td>
+                    </tr>
+                    <tr th:if="${#lists.isEmpty(proveedores)}">
+                        <td colspan="7" class="text-center text-muted">No hay proveedores registrados</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</main>
+
 </body>
 </html>

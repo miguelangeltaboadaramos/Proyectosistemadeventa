@@ -8,7 +8,7 @@ import sistemaDeVentasFinal.sistemaventas.service.EmpleadoService;
 import sistemaDeVentasFinal.sistemaventas.service.EstadoService;
 
 @Controller
-@RequestMapping("/Empleado")
+@RequestMapping("/empleado")
 public class EmpleadoController {
 
     private final EmpleadoService empleadoService;
@@ -42,7 +42,7 @@ public class EmpleadoController {
     @PostMapping("/save")
     public String save(@ModelAttribute("empleado") Empleado empleado) {
         empleadoService.guardarEmpleado(empleado);
-        return "redirect:/Empleado";
+        return "redirect:/empleado";
     }
 }
 

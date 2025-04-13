@@ -1,0 +1,71 @@
+body {
+    background-color: #e9ecef;
+    font-family: 'Segoe UI', sans-serif;
+    color: #343a40;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    color: #343a40;
+    text-align: center;
+    margin-top: 40px;
+    font-weight: 700;
+}
+
+.navbar {
+    background-color: #212529 !important;
+    border-bottom: 1px solid #6c757d;
+}
+
+.navbar-brand {
+    color: #ffffff !important;
+    font-weight: bold;
+}
+
+.navbar-nav .nav-link,
+.navbar-nav .dropdown-toggle {
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    color: #f8f9fa !important;
+    font-weight: 500;
+    padding: 8px 12px;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .dropdown-toggle:hover {
+    color: #ced4da !important;
+    text-decoration: underline;
+}
+
+.navbar-nav .dropdown-menu {
+    background-color: #343a40;
+    border: none;
+}
+
+.navbar-nav .dropdown-item {
+    color: #ffffff;
+    font-weight: 500;
+}
+
+.navbar-nav .dropdown-item:hover {
+    background-color: #495057;
+    color: #ffffff;
+}
+
+.card {
+    border: 1px solid #ced4da;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    margin-bottom: 20px;
+}
+
+footer {
+    background-color: #212529;
+    color: #f8f9fa;
+    padding: 15px;
+    text-align: center;
+}
+

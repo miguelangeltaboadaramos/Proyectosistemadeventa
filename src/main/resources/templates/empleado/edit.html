@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="layout::head">
+    <meta charset="UTF-8">
+    <title>Editar Empleado</title>
+</head>
+<body>
+<div th:replace="layout::menu"></div>
+
+<div class="container mt-5">
+    <div class="card shadow rounded-4 p-4">
+        <div class="d-flex align-items-center mb-4">
+            <i class="bi bi-pencil-square fs-3 me-2 text-primary"></i>
+            <h2 class="mb-0">Editar Empleado</h2>
+        </div>
+
+        <form th:action="@{/empleado/save}" th:object="${empleado}" method="post">
+            <input type="hidden" th:field="*{idempleado}" />
+
+            <div class="mb-3">
+                <label class="form-label">Nombre:</label>
+                <input type="text" class="form-control" th:field="*{nombre}" placeholder="Ingrese nombre del empleado" />
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Apellido:</label>
+                <input type="text" class="form-control" th:field="*{apellido}" placeholder="Ingrese apellido del empleado" />
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Teléfono:</label>
+                <input type="text" class="form-control" th:field="*{telefono}" placeholder="Ingrese número de teléfono" />
+            </div>
+
+            <div class="mb-4">
+                <label class="form-label">Estado:</label>
+                <select class="form-select" th:field="*{estado.idestado}">
+                    <option th:each="est : ${estados}" th:value="${est.idestado}" th:text="${est.nombreestado}"
+                            th:selected="${est.idestado == empleado.estado.idestado}"></option>
+                </select>
+            </div>
+
+            <div class="text-end">
+                <button type="submit" class="btn btn-primary px-4 rounded-pill">
+                    <i class="bi bi-save me-1"></i> Actualizar
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>
