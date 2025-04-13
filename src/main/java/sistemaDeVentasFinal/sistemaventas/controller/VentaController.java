@@ -9,3 +9,4 @@ public class VentaController {
         return "venta/index";
     }
 }
+

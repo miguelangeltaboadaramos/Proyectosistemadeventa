@@ -1,5 +1,5 @@
 body {
-    background-color: #e9ecef;
+    background-color: white;
     font-family: 'Segoe UI', sans-serif;
     color: #343a40;
     margin: 0;
@@ -11,6 +11,8 @@ h1 {
     text-align: center;
     margin-top: 40px;
     font-weight: 700;
+    color:black;
+    font-size:140px;
 }
 
 .navbar {
