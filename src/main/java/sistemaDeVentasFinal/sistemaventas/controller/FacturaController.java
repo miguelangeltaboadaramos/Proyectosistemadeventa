@@ -4,13 +4,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import sistemaDeVentasFinal.sistemaventas.model.Factura;
-import sistemaDeVentasFinal.sistemaventas.service.FacturaService;
 import sistemaDeVentasFinal.sistemaventas.service.EstadoService;
+import sistemaDeVentasFinal.sistemaventas.service.FacturaService;
 
 @Controller
 @RequestMapping("venta/factura")
 public class FacturaController {
-
     private final FacturaService facturaService;
     private final EstadoService estadoService;
 
@@ -41,8 +40,8 @@ public class FacturaController {
     }
 
     @PostMapping("/save")
-    public String save(@ModelAttribute("boleta") Factura factura) {
+    public String save(@ModelAttribute("factura") Factura factura) {
         facturaService.guardarFactura(factura);
-        return "redirect:/factura";
+        return "redirect:/venta/factura";
     }
 }

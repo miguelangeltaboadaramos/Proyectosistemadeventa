@@ -2,7 +2,7 @@
 <html lang="es" xmlns:th="http://www.w3.org/1999/xhtml">
 <head th:replace="layout::head">
     <meta charset="UTF-8">
-    <title>Registrar Boleta</title>
+    <title>Registrar Factura</title>
 </head>
 <body>
 
@@ -16,24 +16,19 @@
 
             <div class="card shadow-sm border-0">
                 <div class="card-header bg-dark text-white text-center">
-                    <h4 class="mb-0">Registrar Nueva Boleta</h4>
+                    <h4 class="mb-0">Registrar Nueva Factura</h4>
                 </div>
 
                 <div class="card-body">
-                    <form th:action="@{/venta/boleta/save}" th:object="${boleta}" method="post">
-                        <div class="mb-3">
-                            <label class="form-label">DNI</label>
-                            <input type="text" th:field="*{cliente.dni}" class="form-control" placeholder="Ingrese su DNI" required>
-                        </div>
+                    <form th:action="@{/venta/factura/save}" th:object="${factura}" method="post">
 
                         <div class="mb-3">
-                            <label class="form-label">Nombre</label>
-                            <input type="text" th:field="*{cliente.nombre}" class="form-control" placeholder="Ingrese el nombre" required>
+                            <label class="form-label">RUC</label>
+                            <input type="text" th:field="*{ruc}" class="form-control" placeholder="Ingrese el RUC" required>
                         </div>
-
                         <div class="mb-3">
                             <label class="form-label">Fecha</label>
-                            <input type="text" th:field="*{fecha}" class="form-control" placeholder="Ingrese la Fecha de Emision" required>
+                            <input type="date" th:field="*{fecha}" class="form-control" required>
                         </div>
 
                         <div class="mb-3">

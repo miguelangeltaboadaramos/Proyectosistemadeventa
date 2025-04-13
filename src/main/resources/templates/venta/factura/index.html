@@ -2,7 +2,7 @@
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Lista de Boletas</title>
+    <title>Lista de Facturas</title>
     <link th:href="@{/css/bootstrap/bootstrap.css}" rel="stylesheet">
     <link th:href="@{/css/estilos.css}" rel="stylesheet">
     <script th:src="@{/js/bootstrap/bootstrap.bundle.js}" type="text/javascript"></script>
@@ -13,9 +13,9 @@
 
 <main class="container mt-5">
     <div class="d-flex justify-content-between align-items-center mb-4">
-        <h2 class="fw-bold text-dark">Lista de Boletas</h2>
-        <a th:href="@{/venta/boleta/create}" class="btn btn-primary">
-            <i class="bi bi-person-plus me-1"></i> Ingresar nueva boleta
+        <h2 class="fw-bold text-dark">Lista de Facturas</h2>
+        <a th:href="@{/venta/factura/create}" class="btn btn-primary">
+            <i class="bi bi-person-plus me-1"></i> Ingresar nueva Factura
         </a>
     </div>
 
@@ -25,8 +25,7 @@
                 <thead class="table-dark">
                 <tr>
                     <th>ID</th>
-                    <th>DNI</th>
-                    <th>Nombre</th>
+                    <th>RUC</th>
                     <th>Fecha</th>
                     <th>Total</th>
                     <th>Estado</th>
@@ -34,19 +33,15 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr th:each="boleta : ${boletas}">
-                    <td th:text="${boleta.idboleta}"></td>
-                    <td><span th:text="${boleta.cliente.dni}" class="badge bg-success"></span></td>
-                    <td><span th:text="${boleta.cliente.nombre}" class="badge bg-primary"></span></td>
-                    <td th:text="${#dates.format(boleta.fecha, 'yyyy-MM-dd')}"></td>
-                    <td th:text="${boleta.total}"></td>
-                    <td><span th:text="${boleta.estado.nombreestado}" class="badge bg-success"></span></td>
+                <tr th:each="factura : ${facturas}">
+                    <td th:text="${factura.idfactura}"></td>
+                    <td th:text="${factura.ruc}"></td>
+                    <td th:text="${#dates.format(factura.fecha, 'yyyy-MM-dd')}"></td>
+                    <td th:text="${factura.total}"></td>
+                    <td><span th:text="${factura.estado.nombreestado}" class="badge bg-success"></span></td>
                     <td>
-                        <a th:href="@{'/venta/boleta/edit/' + ${boleta.idboleta}}" class="btn btn-sm btn-warning me-1">
+                        <a th:href="@{'/venta/factura/edit/' + ${factura.idfactura}}" class="btn btn-sm btn-warning me-1">
                             <i class="bi bi-pencil-fill"></i>
-                        </a>
-                        <a th:href="@{'/venta/boleta/eliminar/' + ${boleta.idboleta}}" class="btn btn-sm btn-danger">
-                            <i class="bi bi-trash-fill"></i>
                         </a>
                     </td>
                 </tr>
@@ -58,6 +53,5 @@
 
 </body>
 </html>
-
 
 

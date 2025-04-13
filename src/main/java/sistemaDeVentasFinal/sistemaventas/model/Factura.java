@@ -1,6 +1,7 @@
 package sistemaDeVentasFinal.sistemaventas.model;
 
 import jakarta.persistence.*;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 
@@ -11,8 +12,17 @@ public class Factura {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idfactura;
     private String ruc;
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
     private Date fecha;
+    private Double total;
 
+    public Double getTotal() {
+        return total;
+    }
+
+    public void setTotal(Double total) {
+        this.total = total;
+    }
 
     @ManyToOne
     @JoinColumn(name = "idestado")
