@@ -2,6 +2,8 @@ package sistemaDeVentasFinal.sistemaventas.model;
 
 import jakarta.persistence.*;
 
+import java.util.Date;
+
 @Entity
 @Table(name = "comprobantes")
 public class Comprobante {
@@ -9,6 +11,15 @@ public class Comprobante {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idcomprobante;
     private Double total;
+    private Date fechaini;
+
+    public Date getFechaini() {
+        return fechaini;
+    }
+
+    public void setFechaini(Date fechaini) {
+        this.fechaini = fechaini;
+    }
 
     @ManyToOne
     @JoinColumn(name = "idventa")
@@ -37,4 +48,5 @@ public class Comprobante {
     public void setVenta(Venta venta) {
         this.venta = venta;
     }
+
 }

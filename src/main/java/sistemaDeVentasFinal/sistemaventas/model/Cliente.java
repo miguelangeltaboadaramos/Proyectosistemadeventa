@@ -9,9 +9,8 @@ public class Cliente {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idcliente;
     private String nombre;
-    private String dniRuc;
+    private String dni;
     private String telefono;
-    private String correo;
 
     public Integer getIdcliente() {
         return idcliente;
@@ -29,12 +28,12 @@ public class Cliente {
         this.nombre = nombre;
     }
 
-    public String getDniRuc() {
-        return dniRuc;
+    public String getDni() {
+        return dni;
     }
 
-    public void setDniRuc(String dniRuc) {
-        this.dniRuc = dniRuc;
+    public void setDni(String dni) {
+        this.dni = dni;
     }
 
     public String getTelefono() {
@@ -43,14 +42,6 @@ public class Cliente {
 
     public void setTelefono(String telefono) {
         this.telefono = telefono;
-    }
-
-    public String getCorreo() {
-        return correo;
-    }
-
-    public void setCorreo(String correo) {
-        this.correo = correo;
     }
 }
 

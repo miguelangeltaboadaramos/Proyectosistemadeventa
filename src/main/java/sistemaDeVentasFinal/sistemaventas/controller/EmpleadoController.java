@@ -19,6 +19,7 @@ public class EmpleadoController {
         this.estadoService = estadoService;
     }
 
+
     @GetMapping
     public String index(Model model) {
         model.addAttribute("empleados", empleadoService.obtenerEmpleados());
